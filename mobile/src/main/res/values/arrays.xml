@@ -8,9 +8,4 @@
         <item>Mrs.</item>
         <item>Dr.</item>
     </string-array>
-
-    <!--Add your admin Email addresses -->
-    <string-array name="admin_list">
-
-    </string-array>
 </resources>

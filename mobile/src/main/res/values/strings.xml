@@ -59,7 +59,7 @@
     <string name="permission_contacts_rationale">Contacts permission is needed to find contacts you\'re familiar with.</string>
     <string name="permissions_not_granted">Permissions were not granted.</string>
 
-    <string name="maps_key">AIzaSyAW-PIHdwa5DTKvK-NMTyAJIH_qLChjd-c</string>
+    <string name="maps_key">YOUR-MAP-KEY</string>
 
     <string name="venue_address">
         Adam Tas Rd, Stellenbosch, 7600\nCape Town\n\nhttp://oudelibertas.co.za/

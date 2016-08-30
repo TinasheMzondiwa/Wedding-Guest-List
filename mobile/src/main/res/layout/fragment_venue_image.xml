@@ -64,7 +64,7 @@
                             android:id="@+id/btn_uber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            uber:client_id="2pxXbFQpfJEQbKfmGetbnwSJBFGl-upr"
+                            uber:client_id="YOUR_UBER_API_KEY"
                             uber:style="black"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"

@@ -12,6 +12,9 @@ Imported these records easily into my Firebase Database.
 <img src="screenshots/3.png" width="25%" />
 <img src="screenshots/4.png" width="25%" />
 <img src="screenshots/5.png" width="25%" />
+<img src="screenshots/w_1.png" width="30%" />
+<img src="screenshots/w_2.png" width="30%" />
+<img src="screenshots/w_3.png" width="30%" />
 
 ## Technology / Libraries Used
 - [Android Support lib] (https://developer.android.com/topic/libraries/support-library/index.html)

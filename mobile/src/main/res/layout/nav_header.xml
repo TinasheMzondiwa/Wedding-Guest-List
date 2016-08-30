@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:background="?attr/colorAccent">
+
+    <ImageView
+        android:id="@+id/profile_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/blank"/>
+
+    <LinearLayout
+        android:id="@+id/signed_in_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="@dimen/spacing_medium"
+        android:paddingRight="@dimen/spacing_medium"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="?attr/colorPrimaryDark"
+            app:civ_border_color="@color/black_overlay"
+            app:civ_border_width="4dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/profile_name"
+                style="@style/Widget.TextView"
+                android:paddingBottom="0dp"
+                android:textColor="@color/body_text_1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                tools:text="Tinashe Mzondiwa"/>
+            <TextView
+                android:id="@+id/profile_email"
+                style="@style/Widget.TextView"
+                android:paddingTop="0dp"
+                android:textColor="@color/body_text_3"
+                android:textSize="@dimen/text_size_small"
+                android:singleLine="true"
+                android:ellipsize="end"
+                tools:text="tmzon08@gmail.com"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:visibility="gone"/>
+
+</FrameLayout>

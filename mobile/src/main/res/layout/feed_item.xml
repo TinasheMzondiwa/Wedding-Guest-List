@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.CardView"
+    android:layout_marginRight="@dimen/feed_margin"
+    android:layout_marginLeft="@dimen/feed_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_normal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/feed_img"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_account_circle"
+            android:contentDescription="@string/blank"
+            app:civ_border_color="@color/black_overlay"
+            app:civ_border_width="2dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/feed_owner"
+                    style="@style/Widget.TextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    tools:text="Jason Smith"/>
+                <TextView
+                    android:id="@+id/feed_time"
+                    style="@style/Widget.TextView"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/body_text_3"
+                    android:textSize="@dimen/text_size_small"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="@dimen/spacing_micro"
+                    android:paddingRight="@dimen/spacing_micro"
+                    tools:text="3 mins ago."/>
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/feed_text"
+                style="@style/Widget.TextView"
+                android:paddingTop="0dp"
+                android:autoLink="all"
+                android:linksClickable="true"
+                tools:text=".. added Matthew Doe"/>
+
+            <ImageView
+                android:id="@+id/feed_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_delete"
+                android:tint="@color/base30"
+                android:layout_gravity="end"
+                android:contentDescription="@string/blank"
+                tools:visibility="visible"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

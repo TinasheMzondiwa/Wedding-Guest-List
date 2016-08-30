@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:uber="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <fragment
+        android:id="@+id/map"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/landscape_margin"
+        android:paddingRight="@dimen/landscape_margin">
+
+        <android.support.v7.widget.CardView
+            style="@style/Widget.CardView"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/spacing_large">
+
+                <TextView
+                    style="@style/Widget.TextView"
+                    android:text="@string/oude"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                <TextView
+                    style="@style/Widget.TextView"
+                    android:autoLink="web"
+                    android:linksClickable="true"
+                    android:text="@string/material"
+                    android:textColorLink="@color/colorPrimaryDark"
+                    android:textIsSelectable="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_navigate"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_marginLeft="@dimen/spacing_medium"
+                        android:layout_marginRight="@dimen/spacing_medium"
+                        android:drawableLeft="@drawable/ic_directions"
+                        android:drawablePadding="@dimen/spacing_medium"
+                        android:drawableStart="@drawable/ic_directions"
+                        android:text="@string/directions"
+                        android:theme="@style/Widget.Button.Navigate" />
+
+                    <com.uber.sdk.android.rides.RequestButton
+                        android:id="@+id/btn_uber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        uber:client_id="2pxXbFQpfJEQbKfmGetbnwSJBFGl-upr"
+                        uber:style="black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>
+

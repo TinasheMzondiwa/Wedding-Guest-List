@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/non_check"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_facebook"
+            android:icon="@drawable/facebook_box"
+            android:title="@string/facebook_event" />
+        <item
+            android:id="@+id/nav_registry"
+            android:icon="@drawable/gift"
+            android:title="@string/wedding_registry" />
+    </group>
+</menu>

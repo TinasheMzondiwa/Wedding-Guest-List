@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.CardView"
+    android:layout_marginLeft="@dimen/spacing_medium"
+    android:layout_marginRight="@dimen/spacing_medium">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/table_num"
+                    style="@style/Widget.TextView"
+                    tools:text="Table #4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_guests_count"
+                    style="@style/Widget.TextView"
+                    android:paddingTop="0dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/body_text_3"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="4 Guests"/>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/img_vip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/blank"
+                    android:src="@drawable/star_circle"
+                    android:layout_margin="@dimen/spacing_normal" />
+
+                <ImageView
+                    android:id="@+id/toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_expand_more"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/blank"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/guests_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:animateLayoutChanges="true"/>
+
+
+        <Button
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:text="@string/action_add"
+            android:textColor="@color/colorAccent"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingRight="@dimen/spacing_medium"/>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

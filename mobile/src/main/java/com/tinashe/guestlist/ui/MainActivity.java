@@ -673,7 +673,7 @@ public class MainActivity extends BaseActivity implements MainController, ViewFi
                     (this, R.color.colorAccent));
             ActivityOptions options =
                     ActivityOptions.makeSceneTransitionAnimation(this, fab,
-                            getString(R.string.transition_dribbble_login));
+                            getString(R.string.transition_post_feed));
             startActivityForResult(post, REQUEST_POST_FEED, options.toBundle());
         } else {
             startActivityForResult(post, REQUEST_POST_FEED);

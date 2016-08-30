@@ -16,7 +16,7 @@
         android:background="@drawable/dialog_background"
         android:elevation="@dimen/z_fab"
         android:orientation="vertical"
-        android:transitionName="@string/transition_dribbble_login">
+        android:transitionName="@string/transition_post_feed">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -120,38 +120,6 @@
                 android:textAppearance="@style/TextAppearance.DarkButton"
                 android:theme="@style/Widget.Button.Post" />
         </LinearLayout>
-
-
-        <!--<FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/spacing_normal"
-            android:paddingLeft="@dimen/spacing_medium"
-            android:paddingRight="@dimen/spacing_medium"
-            android:paddingTop="@dimen/spacing_normal"
-            android:background="@color/base30"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:visibility="gone">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_add_a_photo_"
-                android:contentDescription="@string/blank"
-                android:layout_margin="@dimen/spacing_micro"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_send"
-                android:contentDescription="@string/blank"
-                android:layout_gravity="end"
-                android:layout_margin="@dimen/spacing_micro"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-        </FrameLayout>-->
 
     </LinearLayout>
 

@@ -39,7 +39,7 @@
                     style="@style/Widget.TextView"
                     android:autoLink="web"
                     android:linksClickable="true"
-                    android:text="@string/material"
+                    android:text="@string/venue_address"
                     android:textColorLink="@color/colorPrimaryDark"
                     android:textIsSelectable="true" />
 

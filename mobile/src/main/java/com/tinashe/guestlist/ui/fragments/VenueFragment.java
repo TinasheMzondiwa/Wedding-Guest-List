@@ -70,7 +70,7 @@ public class VenueFragment extends BaseFragment implements OnMapReadyCallback {
         RideParameters rideParameters = new RideParameters.Builder()
                 .setDropoffLocation((float) Constants.OUDE_LIBERTAS.latitude,
                         (float) Constants.OUDE_LIBERTAS.longitude,
-                        getString(R.string.oude), getString(R.string.material))
+                        getString(R.string.oude), getString(R.string.venue_address))
                 .build();
         uberButton.setRideParameters(rideParameters);
     }

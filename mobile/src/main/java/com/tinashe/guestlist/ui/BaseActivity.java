@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -25,8 +26,13 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.tinashe.guestlist.BuildConfig;
 import com.tinashe.guestlist.R;
 import com.tinashe.guestlist.utils.customtabs.CustomTabActivityHelper;
@@ -57,6 +63,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
     };
     protected GoogleSignInOptions mGso;
     protected CustomTabActivityHelper customTab;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Nullable
     @Bind(R.id.toolbar)
@@ -118,6 +126,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
 
         mGso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .requestProfile()
                 .build();
@@ -125,6 +134,29 @@ public abstract class BaseActivity extends AppCompatActivity implements
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, mGso)
                 .build();
+
+        mAuth = FirebaseAuth.getInstance();
+
+        // [START auth_state_listener]
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                Log.d(TAG, "onAuthStateChanged(): " + firebaseAuth);
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:id: " + user.getUid());
+                    Log.d(TAG, "onAuthStateChanged:user: " + user.getEmail());
+
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                upDateProfileUi();
+
+            }
+        };
+        // [END auth_state_listener]
 
     }
 
@@ -185,6 +217,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
     }
 
     protected void signOut() {
+        mAuth.signOut();
+
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -212,15 +246,31 @@ public abstract class BaseActivity extends AppCompatActivity implements
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-            //Use acct
-
-            upDateProfileUi();
-
-        } else {
-            // Signed out, show unauthenticated UI.
-            //updateUI(false);
-            Log.d(TAG, "Signed out");
+            firebaseAuthWithGoogle(acct);
         }
+    }
+
+    private void firebaseAuthWithGoogle(final GoogleSignInAccount acct) {
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+        // ...
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithCredential", task.getException());
+                            Toast.makeText(BaseActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
     }
 
     protected void upDateProfileUi() {
@@ -252,12 +302,16 @@ public abstract class BaseActivity extends AppCompatActivity implements
     protected void onStart() {
         super.onStart();
         customTab.bindCustomTabsService(this);
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     protected void onStop() {
         customTab.unbindCustomTabsService(this);
         super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     @Override

@@ -7,6 +7,11 @@ We used an online site for people to RSVP so from there I got an excell spreadsh
 Imported these records easily into my Firebase Database.
 
 ## Screenshots
+<img src="screenshots/1.png" width="25%" />
+<img src="screenshots/2.png" width="25%" />
+<img src="screenshots/3.png" width="25%" />
+<img src="screenshots/4.png" width="25%" />
+<img src="screenshots/5.png" width="25%" />
 
 ## Technology / Libraries Used
 - [Android Support lib] (https://developer.android.com/topic/libraries/support-library/index.html)

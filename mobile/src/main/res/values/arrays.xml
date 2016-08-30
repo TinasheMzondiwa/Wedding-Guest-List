@@ -9,8 +9,8 @@
         <item>Dr.</item>
     </string-array>
 
+    <!--Add your admin Email addresses -->
     <string-array name="admin_list">
-        <item>tmzon08@gmail.com</item>
-        <item>malandejackie@gmail.com</item>
+
     </string-array>
 </resources>

@@ -68,7 +68,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="@dimen/spacing_normal"
-                        uber:client_id="YOUR_UBER_API_KEY"
+                        uber:client_id="UBER_API_KEY"
                         uber:style="black" />
                 </LinearLayout>
 
